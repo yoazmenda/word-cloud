@@ -10,9 +10,9 @@
 <div class="container">
     <h3>Word Cloud Generator</h3>
     <p>Select a pre-loaded text or enter your own:</p>
-    <button onclick="loadText('lorem')">Load Sample Text 1</button>
-    <button onclick="loadText('science')">Load Sample Text 2</button>
-    <button onclick="loadText('literature')">Load Sample Text 3</button>
+    <button onclick="loadText('attention_is_all_you_need.txt')">Attention Is All You Need</button>
+    <button onclick="loadText('illya.txt')">Ilya Sutskever</button>
+    <button onclick="loadText('word_embeddings.txt')">Word Embeddings</button>
     <form class="col s12" action="/generate" method="post" target="resultFrame">
         <div class="row">
             <div class="input-field col s12">
@@ -49,16 +49,14 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script>
-    function loadText(sample) {
-        const samples = {
-            'lorem': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-            'science': 'Scientific research often involves complex computations, hypothesis testing, and data analysis to explore the mysteries of the universe.',
-            'literature': 'Literature often reflects the cultural, social, and personal issues of the times in which it was written, providing a window into the past.'
-        };
-        document.getElementById('text').value = samples[sample];
+     async function loadText(filename) {
+        const response = await fetch(`/static/${filename}`);
+        const text = await response.text();
+        document.getElementById('text').value = text;
         M.updateTextFields(); // Update Materialize input fields
     }
 </script>
 
 </body>
 </html>
+    
