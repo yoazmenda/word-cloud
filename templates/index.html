@@ -3,47 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <title>Word Cloud Generator</title>
-    <style>
-        body {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: flex-start;
-            padding: 20px;
-            gap: 20px;
-        }
-        #inputArea {
-            flex: 1;
-        }
-        #resultArea {
-            flex: 1;
-        }
-        textarea {
-            width: 100%;
-            height: 150px;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-    </style>
+    <!-- Compiled and minified Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="inputArea">
-        <form action="/generate" method="post" target="resultFrame">
-            <textarea name="text" required placeholder="Enter your text here..."></textarea>
-            <div>
-                <label for="width">Width:</label>
-                <input type="number" name="width" value="800">
-                <label for="height">Height:</label>
-                <input type="number" name="height" value="400">
-                <button type="submit">Generate</button>
+
+<div class="container">
+    <h3>Word Cloud Generator</h3>
+    <div class="row">
+        <form class="col s12" action="/generate" method="post" target="resultFrame">
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="text" class="materialize-textarea" name="text" required></textarea>
+                    <label for="text">Enter your text here...</label>
+                </div>
             </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="width" type="number" name="width" value="800">
+                    <label for="width">Width</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="height" type="number" name="height" value="400">
+                    <label for="height">Height</label>
+                </div>
+            </div>
+            <button class="btn waves-effect waves-light" type="submit">Generate
+                <i class="material-icons right">cloud</i>
+            </button>
         </form>
     </div>
-    <div id="resultArea">
-        <iframe name="resultFrame" style="width: 100%; height: 400px; border: none;"></iframe>
+    <div class="row">
+        <div class="col s12">
+            <iframe name="resultFrame" style="width: 100%; height: 400px; border: none;"></iframe>
+        </div>
     </div>
+</div>
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<!-- Custom JavaScript -->
+<script src="script.js"></script>
 </body>
 </html>
-
