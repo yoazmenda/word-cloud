@@ -1,6 +1,9 @@
 
 # Word Cloud Generator
 
+![image](https://github.com/yoazmenda/word-cloud/assets/7403598/7613d5a0-e16f-4e30-a616-8deceec8ef75)
+
+
 ## Introduction
 
 This project is a Flask-based web application that allows users to generate word clouds from text input. The application features a simple web interface where users can enter text and receive a word cloud visualization as a result.
