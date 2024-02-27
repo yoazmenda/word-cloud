@@ -1,6 +1,9 @@
 
 # Word Cloud Generator
-https://yuz7895.pythonanywhere.com/
+
+<h3 style="text-align: center;">https://yuz7895.pythonanywhere.com</h3>
+
+
 ![image](https://github.com/yoazmenda/word-cloud/assets/7403598/27720a18-037c-4ce8-9e32-93ee4e83055e)
 
 ## Introduction
