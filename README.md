@@ -1,5 +1,8 @@
 
-# Flask Word Cloud Generator
+# Word Cloud Generator
+
+![image](https://github.com/yoazmenda/word-cloud/assets/7403598/7613d5a0-e16f-4e30-a616-8deceec8ef75)
+
 
 ## Introduction
 
