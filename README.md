@@ -1,8 +1,7 @@
 
 # Word Cloud Generator
-
-![image](https://github.com/yoazmenda/word-cloud/assets/7403598/7613d5a0-e16f-4e30-a616-8deceec8ef75)
-
+https://yuz7895.pythonanywhere.com/
+![image](https://github.com/yoazmenda/word-cloud/assets/7403598/27720a18-037c-4ce8-9e32-93ee4e83055e)
 
 ## Introduction
 
