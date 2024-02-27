@@ -18,13 +18,13 @@ Before running this application, you will need:
 First, clone the repository to your local machine using the following command:
 
 ```sh
-git clone <repository-url>
+git clone https://github.com/yoazmenda/word-cloud
 ```
 
 Navigate into the project directory:
 
 ```sh
-cd <repository-directory>
+cd word-cloud
 ```
 
 ### 2. Virtual Environment Setup
@@ -86,7 +86,3 @@ The application will now be running on [http://localhost:5000](http://localhost:
 ## Closing the Application
 
 To stop the Flask server, press `CTRL+C` in the terminal. If you wish to exit the virtual environment, type `deactivate`.
-
----
-
-Make sure to replace `<repository-url>` and `<repository-directory>` with your actual repository URL and directory name, respectively.
