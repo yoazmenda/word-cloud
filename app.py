@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import io
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
-from nltk.stem import WordNetLemmatizer
+from nltk.stem import WordNetLemmatizer, PorterStemmer
 import nltk
 
 # Download necessary NLTK data
@@ -21,16 +21,30 @@ def index():
 @app.route('/generate', methods=['POST'])
 def generate():
     text = request.form['text']
-    width = request.form.get('width', default=800, type=int)
-    height = request.form.get('height', default=400, type=int)
+    # Fixed width and height
+    width = 800
+    height = 600
+
+    # Get user options
+    use_stopwords = 'stopwords' in request.form
+    use_lemmatization = 'lemmatization' in request.form
+    use_stemming = 'stemming' in request.form
 
     # Preprocess the text
     words = word_tokenize(text)
-    filtered_words = [word for word in words if word.lower() not in stopwords.words('english')]
-    lemmatizer = WordNetLemmatizer()
-    lemmatized_words = [lemmatizer.lemmatize(word) for word in filtered_words]
 
-    processed_text = ' '.join(lemmatized_words)
+    if use_stopwords:
+        words = [word for word in words if word.lower() not in stopwords.words('english')]
+
+    if use_lemmatization:
+        lemmatizer = WordNetLemmatizer()
+        words = [lemmatizer.lemmatize(word) for word in words]
+
+    if use_stemming:
+        stemmer = PorterStemmer()
+        words = [stemmer.stem(word) for word in words]
+
+    processed_text = ' '.join(words)
 
     # Generate the word cloud
     wordcloud = WordCloud(width=width, height=height, background_color='white').generate(processed_text)
@@ -42,9 +56,8 @@ def generate():
     plt.savefig(img, format='PNG', bbox_inches='tight', pad_inches=0)
     img.seek(0)
     plt.close()
-    
+
     return send_file(img, mimetype='image/png')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080)
-
