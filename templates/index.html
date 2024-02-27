@@ -9,6 +9,10 @@
 
 <div class="container">
     <h3>Word Cloud Generator</h3>
+    <p>Select a pre-loaded text or enter your own:</p>
+    <button onclick="loadText('lorem')">Load Sample Text 1</button>
+    <button onclick="loadText('science')">Load Sample Text 2</button>
+    <button onclick="loadText('literature')">Load Sample Text 3</button>
     <form class="col s12" action="/generate" method="post" target="resultFrame">
         <div class="row">
             <div class="input-field col s12">
@@ -19,19 +23,19 @@
         <p>
             <label>
                 <input type="checkbox" name="stopwords"/>
-                <span>Remove Stop Words</span>
+                <span>Remove Stop Words (e.g., "the", "is", "and") to focus on more meaningful words</span>
             </label>
         </p>
         <p>
             <label>
                 <input type="checkbox" name="lemmatization"/>
-                <span>Use Lemmatization</span>
+                <span>Use Lemmatization (e.g., "running" to "run") to consolidate similar word forms</span>
             </label>
         </p>
         <p>
             <label>
                 <input type="checkbox" name="stemming"/>
-                <span>Use Stemming</span>
+                <span>Use Stemming (e.g., "connection" to "connect") for a cruder form reduction than lemmatization</span>
             </label>
         </p>
         <button class="btn waves-effect waves-light" type="submit">Generate
@@ -43,10 +47,18 @@
     </div>
 </div>
 
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script src="script.js"></script>
+<script>
+    function loadText(sample) {
+        const samples = {
+            'lorem': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+            'science': 'Scientific research often involves complex computations, hypothesis testing, and data analysis to explore the mysteries of the universe.',
+            'literature': 'Literature often reflects the cultural, social, and personal issues of the times in which it was written, providing a window into the past.'
+        };
+        document.getElementById('text').value = samples[sample];
+        M.updateTextFields(); // Update Materialize input fields
+    }
+</script>
 
 </body>
-
 </html>
