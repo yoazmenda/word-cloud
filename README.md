@@ -1,5 +1,5 @@
 
-# Flask Word Cloud Generator
+# Word Cloud Generator
 
 ## Introduction
 
